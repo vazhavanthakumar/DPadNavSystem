@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="isLocation"
+            type="Boolean" />
+
+        <variable
+            name="isBt"
+            type="Boolean" />
+
+        <variable
+            name="isControls"
+            type="Boolean" />
+
+        <variable
+            name="isSubMenuOpen"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/group">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMusic"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_circle_background"
+            android:scaleType="center"
+            android:src="@drawable/ic_music_grey"
+            android:visibility="@{isSubMenuOpen?View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerSubMenu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_sub_menu_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ivMusic"
+            app:layout_constraintStart_toStartOf="@id/ivMusic"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLocation"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@{isLocation?@drawable/ic_circle_white:null}"
+                android:scaleType="center"
+                android:src="@{isLocation?@drawable/ic_location_enabled:@drawable/ic_location}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBluetooth"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@{isBt?@drawable/ic_circle_white:null}"
+                android:scaleType="center"
+                android:src="@{isBt?@drawable/ic_bluetooth_enabled:@drawable/ic_bluetooth}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivLocation" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSettings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:background="@{isControls?@drawable/ic_circle_white:null}"
+                android:scaleType="center"
+                android:src="@{isControls?@drawable/ic_settings_enabled:@drawable/ic_settings}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivBluetooth" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivArrowRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/containerSubMenu"
+            app:layout_constraintStart_toEndOf="@id/containerSubMenu"
+            app:layout_constraintTop_toTopOf="@id/containerSubMenu" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivGauge"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_circle_background"
+            android:scaleType="center"
+            android:src="@drawable/iv_gauge_grey"
+            android:visibility="@{isSubMenuOpen?View.INVISIBLE:View.VISIBLE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/odo_km"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/ivGauge"
+            app:layout_constraintStart_toEndOf="@+id/ivGauge"
+            app:layout_constraintTop_toTopOf="@id/ivGauge" />
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/containerNavGraph"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:defaultNavHost="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/containerSubMenu"
+            app:layout_constraintTop_toTopOf="parent"
+            app:navGraph="@navigation/nav_graph" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivVoiceControl"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ic_circle_background"
+            android:scaleType="center"
+            android:src="@android:drawable/ic_btn_speak_now"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

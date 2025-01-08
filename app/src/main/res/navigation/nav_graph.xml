@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navRider">
+
+    <fragment
+        android:id="@+id/navRider"
+        android:name="com.ev.dpadnavsystem.ui.rider.RiderScreenFragment"
+        android:label="Rider"
+        tools:layout="@layout/rider_screen_fragment">
+        <action
+            android:id="@+id/action_navRider_to_navSubmenu"
+            app:destination="@id/navSubmenu"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navSubmenu"
+        android:name="com.ev.dpadnavsystem.ui.submenu.SubMenuScreenFragment"
+        android:label="SubMenu"
+        tools:layout="@layout/submenu_fragment">
+
+    </fragment>
+
+</navigation>

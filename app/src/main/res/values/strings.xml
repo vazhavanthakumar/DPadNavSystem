@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DPadNavSystem</string>
+    <string name="odo_km"><b>ODO</b> 1248 km</string>
+    <string name="label_km_h">Km/h</string>
+    <string name="label_eco_mode">ECO</string>
+    <string name="label_bluetooth">Bluetooth</string>
+    <string name="label_request_to_pair">Request to Pair</string>
+    <string name="label_air_flow">Air Flow</string>
+    <string name="label_intensity">Intensity</string>
+    <string name="label_auto_switch">Auto Switch</string>
+    <string name="label_controls">Controls</string>
+    <string name="saved_routes">Saved Routes</string>
+    <string name="label_favorites">Favorites</string>
+    <string name="label_about_vehicle">About Vehicle</string>
+    <string name="label_tricle">Trickle</string>
+    <string name="label_auto_light">Auto Light</string>
+    <string name="label_chargers">Chargers</string>
+</resources>
